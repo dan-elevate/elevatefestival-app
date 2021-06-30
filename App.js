@@ -153,7 +153,7 @@ class App extends React.Component {
       'You can change turn it on in the device settings',
       [
         {
-          text: 'Cancel',
+          text: 'Ignore',
           onPress: () => true,
           style: 'cancel',
         },
