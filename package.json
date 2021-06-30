@@ -8,7 +8,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "pod": "cd ./ios && pod install",
-    "pod-nuke": "cd ios && rm -rf Podfile.lock && pod deintegrate && pod install",
+    "pod-nuke": "cd ios && rm -rf ~/Library/Caches/CocoaPods Pods ~/Library/Developer/Xcode/DerivedData/*; pod deintegrate; pod setup; pod install --repo-update;",
     "test": "jest",
     "lint": "eslint .",
     "iad": "adb install ./android/app/build/outputs/apk/debug/app-debug.apk",
