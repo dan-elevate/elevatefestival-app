@@ -1,0 +1,10 @@
+//
+//  Config.xcconfig
+//  festival_app
+//
+//  Created by Daniel Danaee on 22.01.21.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+#include? "tmp.xcconfig"

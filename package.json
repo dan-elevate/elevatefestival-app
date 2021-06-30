@@ -1,0 +1,44 @@
+{
+  "name": "festival_app",
+  "version": "1.0",
+  "private": true,
+  "scripts": {
+    "init-app": "cp ./assets/.template.env ./.env && yarn",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "pod": "cd ./ios && pod install",
+    "pod-nuke": "cd ios && rm -rf Podfile.lock && pod deintegrate && pod install",
+    "test": "jest",
+    "lint": "eslint .",
+    "iad": "adb install ./android/app/build/outputs/apk/debug/app-debug.apk",
+    "load-assets": "node scripts/load_assets.js && node scripts/load_assets.js"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.15.2",
+    "@react-native-community/netinfo": "^5.9.10",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "global": "^4.4.0",
+    "jshint": "^2.12.0",
+    "pushy-react-native": "^1.0.16",
+    "react": "16.13.1",
+    "react-native": "0.63.4",
+    "react-native-config": "^1.4.2",
+    "react-native-permissions": "^3.0.0",
+    "react-native-vector-icons": "^8.0.0",
+    "react-native-webview": "^11.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
+    "@react-native-community/eslint-config": "^1.1.0",
+    "babel-jest": "^25.1.0",
+    "eslint": "^6.5.1",
+    "jest": "^25.1.0",
+    "metro-react-native-babel-preset": "^0.59.0",
+    "react-test-renderer": "16.13.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
