@@ -16,9 +16,11 @@
 
 </p>
 
-  
+<p align="center">
+  <img width="260"   src="https://www.oeticket.com/obj/media/AT-eventim/galery/222x222/e/elevate-festival-tickets-m.jpg" >
+</p>
 
-  
+ 
 
 React Native project that is configurable to custom naming, assets and frontend Web URL.
 
