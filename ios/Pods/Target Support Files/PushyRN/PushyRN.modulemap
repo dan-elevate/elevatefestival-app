@@ -1,6 +1,0 @@
-module PushyRN {
-  umbrella header "PushyRN-umbrella.h"
-
-  export *
-  module * { export * }
-}
