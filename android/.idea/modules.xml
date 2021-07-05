@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2096453908/app.react-native-async-storage_async-storage.iml" filepath="$PROJECT_DIR$/.idea/modules/2096453908/app.react-native-async-storage_async-storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1856886900/app.react-native-community_netinfo.iml" filepath="$PROJECT_DIR$/.idea/modules/1856886900/app.react-native-community_netinfo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-95802463/app.react-native-config.iml" filepath="$PROJECT_DIR$/.idea/modules/-95802463/app.react-native-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-490761147/app.react-native-permissions.iml" filepath="$PROJECT_DIR$/.idea/modules/-490761147/app.react-native-permissions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1410234065/app.react-native-vector-icons.iml" filepath="$PROJECT_DIR$/.idea/modules/-1410234065/app.react-native-vector-icons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1346834630/app.react-native-webview.iml" filepath="$PROJECT_DIR$/.idea/modules/-1346834630/app.react-native-webview.iml" />
+    </modules>
+  </component>
+</project>

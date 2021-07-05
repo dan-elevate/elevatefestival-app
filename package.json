@@ -3,6 +3,7 @@
   "version": "1.0",
   "private": true,
   "scripts": {
+    "rn": "react-native",
     "init-app": "cp ./assets/.template.env ./.env && yarn",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
