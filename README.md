@@ -86,7 +86,6 @@ Note: Do NOT delete the assets folder or android/ios folder in it. Simply copy p
   
 
 ## Push Notifications
-  
 
 Notification is handled by [Pushy](https://pushy.me/docs/additional-platforms/react-native). Mainly you need to make sure you bundle id matches the one in your Pushy Panel.
 
@@ -98,6 +97,23 @@ Following are the fields for the push notifications:
 | message | string |
 | url | opens the address when notification message is tapped on (string) (optional) |
  
+
+
+These params are injected into the Webview Landing Page on load for acces on your web page side:
+
+| Field | Type |
+|--|--|
+| `[MY_BUNDLE_ID]_APP_PUSHY_ID` | string |
+| `[MY_BUNDLE_ID]_APP_PUSHY_ALLOWED` | boolean |
+
+Note:
+
+Your bundle ID (`APP_BUNDLE_ID`) located in `./.env` is uppercased and relplaced `.` with `_`. Example: `my.bundle.id` will be converted into `MY_BUNDLE_ID`
+
+where now you can extract these values on your web page side from the window object as such (example):
+
+`window.[MY_BUNDLE_ID]_APP_PUSHY_ID`
+
 
 
 Permission checks are with the help of  [react-native-permissions](https://github.com/zoontek/react-native-permissions)
