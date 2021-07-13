@@ -90,9 +90,19 @@ Note: Do NOT delete the assets folder or android/ios folder in it. Simply copy p
 ## Push Notifications
   
 
-Notification is handled by [Pushy](https://pushy.me/docs/additional-platforms/react-native). Mainly you need to make sure you bundle id matches the one in your Pushy Panel.
+Notification is handled by [Pushy](https://pushy.me/docs/additional-platforms/react-native). Mainly you need to make sure you bundle id matches the one in your Pushy Panel. These are injected into the Webview Landing Page on load:
 
-Following are the fields for the push notifications:
+| Field | Type |
+|--|--|
+| `AT_ELEVATE_APP_APP_PUSHY_ID` | string |
+| `AT_ELEVATE_APP_APP_PUSHY_ALLOWED` | boolean |
+
+
+where now you can extract these values on your web page side from the window object as such (example):
+
+`window.AT_ELEVATE_APP_APP_PUSHY_ID`
+
+Following are the object structure for the expected push notification:
 
 | Field | Type |
 |--|--|
