@@ -73,6 +73,7 @@
 		5981A30425C1BB430036A529 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
 		5981A30525C1BB430036A529 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		5981A30625C1BB430036A529 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
+		598A0F4626A7080A00AC103B /* logo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo.jpeg; path = ../logo.jpeg; sourceTree = "<group>"; };
 		59B8196225B8749600ABCE5B /* festival_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = festival_app.entitlements; path = festival_app/festival_app.entitlements; sourceTree = "<group>"; };
 		59B819CE25BAC3A600ABCE5B /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		5C5260970019E3D1EFDF005F /* libPods-festival_app-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-festival_app-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,6 +219,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				598A0F4626A7080A00AC103B /* logo.jpeg */,
 				59B819CE25BAC3A600ABCE5B /* Config.xcconfig */,
 				13B07FAE1A68108700A75B9A /* festival_app */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,

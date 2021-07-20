@@ -222,7 +222,6 @@ class App extends React.Component {
       <SafeAreaView>
          <Spinner
           visible={!pushy_device_id}
-          textContent={'Loading...'}
         />
         <View style={styles.wrapper}>
           {!connected && !(connected === null) && (
