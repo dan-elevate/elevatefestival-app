@@ -223,7 +223,7 @@ class App extends React.Component {
     `;
     }
     return (
-      <SafeAreaView>
+      <SafeAreaView >
          <Spinner
           visible={!pushy_device_id}
         />
@@ -242,6 +242,7 @@ class App extends React.Component {
             injectedJavaScript={params}
             source={{ uri: this.state.main_uri }}
             onNavigationStateChange={this.onNavigationStateChange}
+            decelerationRate="normal"
           />
         </View>
       </SafeAreaView>
@@ -250,7 +251,7 @@ class App extends React.Component {
 }
 const styles = StyleSheet.create({
   wrapper: {
-    height: Dimensions.get('window').height,
+    height: Dimensions.get('window').height * 0.92,
     width: Dimensions.get('window').width,
     overflow: 'hidden',
     position: 'relative',
