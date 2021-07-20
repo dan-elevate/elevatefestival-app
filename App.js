@@ -208,6 +208,10 @@ class App extends React.Component {
     const { pushy_device_id, pushy_device_permission, connected,pushyAttemptCount } = this.state;
     const naming = Config.APP_BUNDLE_ID.replace(/\./g, '_').toUpperCase();
     let params = null
+    /**
+     * @TODO this block will reinforce pushy registration in case of missing device token.
+     * A counter bounded to the component's state can be added to limit failure up to a certain amount of tries 
+     */
     if(!pushy_device_id ){
       this.register()
     }
