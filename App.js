@@ -22,6 +22,7 @@ import Config from 'react-native-config';
 import NetInfo from '@react-native-community/netinfo';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 class App extends React.Component {
   WEBVIEW_REF = React.createRef();
@@ -30,6 +31,7 @@ class App extends React.Component {
     main_uri: Config.APP_INITIAL_WEBVIEW_URL,
     pushy_device_id: '',
     pushy_device_permission: 0,
+    pushyAttemptCount: 0
   };
   componentDidMount() {
     BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
@@ -176,7 +178,7 @@ class App extends React.Component {
     );
   }
 
-  register(token: string) {
+  register() {
     // Register the device for push notifications
     this.state.connected &&
       Pushy.register()
@@ -203,15 +205,25 @@ class App extends React.Component {
     });
   };
   render() {
-    const { pushy_device_id, pushy_device_permission, connected } = this.state;
+    const { pushy_device_id, pushy_device_permission, connected,pushyAttemptCount } = this.state;
     const naming = Config.APP_BUNDLE_ID.replace(/\./g, '_').toUpperCase();
-    const params = `
-    window.${naming}_APP_PUSHY_ID = ${pushy_device_id}
-    window.${naming}_APP_PUSHY_ALLOWED = ${pushy_device_permission}
-    true; // note: this is required, or you'll sometimes get silent failures
-  `;
+    let params = null
+    if(!pushy_device_id ){
+      this.register()
+    }
+    if(pushy_device_id && pushy_device_permission){
+      params = `
+      window.${naming}_APP_PUSHY_ID = ${pushy_device_id}
+      window.${naming}_APP_PUSHY_ALLOWED = ${pushy_device_permission}
+      true; // note: this is required, or you'll sometimes get silent failures
+    `;
+    }
     return (
       <SafeAreaView>
+         <Spinner
+          visible={!pushy_device_id}
+          textContent={'Loading...'}
+        />
         <View style={styles.wrapper}>
           {!connected && !(connected === null) && (
             <TouchableWithoutFeedback
