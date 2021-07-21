@@ -251,7 +251,7 @@ class App extends React.Component {
 }
 const styles = StyleSheet.create({
   wrapper: {
-    height: Dimensions.get('window').height * 0.92,
+    height: (Platform.OS === 'android') ? Dimensions.get('window').height : Dimensions.get('window').height * 0.92,
     width: Dimensions.get('window').width,
     overflow: 'hidden',
     position: 'relative',
