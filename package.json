@@ -28,7 +28,7 @@
     "react-native-loading-spinner-overlay": "^2.0.0",
     "react-native-permissions": "^3.0.0",
     "react-native-vector-icons": "^8.0.0",
-    "react-native-webview": "^11.0.3"
+    "react-native-webview": "^11.6.5"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -38,6 +38,7 @@
     "eslint": "^6.5.1",
     "jest": "^25.1.0",
     "metro-react-native-babel-preset": "^0.59.0",
+    "prettier": "2.3.2",
     "react-test-renderer": "16.13.1"
   },
   "jest": {
