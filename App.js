@@ -61,7 +61,7 @@ class App extends React.Component {
             isInternetReachable &&
             this.WEBVIEW_REF &&
             this.WEBVIEW_REF.current &&
-            this.WEBVIEW_REF.current.reload(),
+            this.WEBVIEW_REF.current.reload()
         );
       }
     });
@@ -92,7 +92,7 @@ class App extends React.Component {
           case RESULTS.UNAVAILABLE:
             Alert.alert(
               'Notifications Unavailable',
-              'It seems that your device does not support push notifications.',
+              'It seems that your device does not support push notifications.'
             );
             break;
           case RESULTS.DENIED:
@@ -106,7 +106,7 @@ class App extends React.Component {
               .catch(() => {
                 Alert.alert(
                   'Notifications Request Failed',
-                  'Please manually allow push notifications in the device settings to receive updates',
+                  'Please manually allow push notifications in the device settings to receive updates'
                 );
               });
             break;
@@ -115,7 +115,7 @@ class App extends React.Component {
             return this.init();
           case RESULTS.BLOCKED:
             return this.setState({ pushy_device_permission: 0 }, () =>
-              this.goToSettings(),
+              this.goToSettings()
             );
         }
       })
@@ -123,7 +123,7 @@ class App extends React.Component {
         this.state.connected &&
           Alert.alert(
             'Notifications Not Available',
-            'Could not retrieve permission status.',
+            'Could not retrieve permission status.'
           );
       });
   }
@@ -174,11 +174,11 @@ class App extends React.Component {
             openSettings().catch(() =>
               Alert.alert(
                 'Opening Settings Failed',
-                'Please open the settings manually',
-              ),
+                'Please open the settings manually'
+              )
             ),
         },
-      ],
+      ]
     );
   }
 
@@ -186,13 +186,14 @@ class App extends React.Component {
     // Register the device for push notifications
     this.state.connected &&
       Pushy.register()
-        .then(async (deviceToken: string) =>
-        deviceToken && this.setState({ pushy_device_id: deviceToken }),
+        .then(
+          async (deviceToken: string) =>
+            deviceToken && this.setState({ pushy_device_id: deviceToken })
         )
         .catch((error: string) => {
           Alert.alert(
             'Failed to set up push notifications :(',
-            'Please re-open the app and try again later.',
+            'Please re-open the app and try again later.'
           );
         });
   }
@@ -219,8 +220,8 @@ class App extends React.Component {
     window.AppData.${naming}_APP_PUSHY_ID = '${pushy_device_id}';
     window.AppData.${naming}_APP_PUSHY_ALLOWED = '${pushy_device_permission}';
     true;`;
-    if(typeof pushy_device_id == 'undefined'){
-      return  <Spinner visible={true} />
+    if (typeof pushy_device_id == 'undefined') {
+      return <Spinner visible={true} />;
     }
     return (
       <SafeAreaView>
