@@ -22,6 +22,7 @@
     "jshint": "^2.12.0",
     "pushy-react-native": "^1.0.16",
     "react": "16.13.1",
+    "react-native-loading-spinner-overlay": "^2.0.0",
     "react-native": "0.63.4",
     "react-native-config": "^1.4.2",
     "react-native-permissions": "^3.0.0",

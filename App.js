@@ -22,14 +22,16 @@ import Config from 'react-native-config';
 import NetInfo from '@react-native-community/netinfo';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 class App extends React.Component {
   WEBVIEW_REF = React.createRef();
   state = {
     connected: null,
     main_uri: Config.APP_INITIAL_WEBVIEW_URL,
-    pushy_device_id: '',
-    pushy_device_permission: 0,
+    pushy_device_id: undefined,
+    pushy_device_permission: undefined,
+    pushyAttemptCount: 0,
   };
   componentDidMount() {
     BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
@@ -55,7 +57,11 @@ class App extends React.Component {
       if (isInternetReachable !== this.state.connected) {
         this.setState(
           { connected: isInternetReachable },
-          () => isInternetReachable && this.WEBVIEW_REF.current.reload(),
+          () =>
+            isInternetReachable &&
+            this.WEBVIEW_REF &&
+            this.WEBVIEW_REF.current &&
+            this.WEBVIEW_REF.current.reload(),
         );
       }
     });
@@ -153,7 +159,7 @@ class App extends React.Component {
       'You can change turn it on in the device settings',
       [
         {
-          text: 'Cancel',
+          text: 'Ignore',
           onPress: () => true,
           style: 'cancel',
         },
@@ -176,12 +182,12 @@ class App extends React.Component {
     );
   }
 
-  register(token: string) {
+  register() {
     // Register the device for push notifications
     this.state.connected &&
       Pushy.register()
         .then(async (deviceToken: string) =>
-          this.setState({ pushy_device_id: deviceToken }),
+        deviceToken && this.setState({ pushy_device_id: deviceToken }),
         )
         .catch((error: string) => {
           Alert.alert(
@@ -192,7 +198,7 @@ class App extends React.Component {
   }
   handleBackButton = () => {
     if (this.state.canGoBack) {
-      this.WEBVIEW_REF.current.goBack();
+      this.WEBVIEW_REF && this.WEBVIEW_REF.current.goBack();
       return true;
     }
   };
@@ -205,11 +211,17 @@ class App extends React.Component {
   render() {
     const { pushy_device_id, pushy_device_permission, connected } = this.state;
     const naming = Config.APP_BUNDLE_ID.replace(/\./g, '_').toUpperCase();
-    const params = `
-    window.${naming}_APP_PUSHY_ID = ${pushy_device_id}
-    window.${naming}_APP_PUSHY_ALLOWED = ${pushy_device_permission}
-    true; // note: this is required, or you'll sometimes get silent failures
-  `;
+    if (!pushy_device_id) {
+      this.register();
+    }
+    let params = `
+    window.AppData = {};
+    window.AppData.${naming}_APP_PUSHY_ID = '${pushy_device_id}';
+    window.AppData.${naming}_APP_PUSHY_ALLOWED = '${pushy_device_permission}';
+    true;`;
+    if(typeof pushy_device_id == 'undefined'){
+      return  <Spinner visible={true} />
+    }
     return (
       <SafeAreaView>
         <View style={styles.wrapper}>
@@ -223,10 +235,12 @@ class App extends React.Component {
             </TouchableWithoutFeedback>
           )}
           <WebView
+            injectedJavaScriptBeforeContentLoaded={params}
+            javaScriptEnabled={true}
             ref={this.WEBVIEW_REF}
-            injectedJavaScript={params}
             source={{ uri: this.state.main_uri }}
             onNavigationStateChange={this.onNavigationStateChange}
+            decelerationRate="normal"
           />
         </View>
       </SafeAreaView>
@@ -235,7 +249,10 @@ class App extends React.Component {
 }
 const styles = StyleSheet.create({
   wrapper: {
-    height: Dimensions.get('window').height,
+    height:
+      Platform.OS === 'android'
+        ? Dimensions.get('window').height
+        : Dimensions.get('window').height * 0.92,
     width: Dimensions.get('window').width,
     overflow: 'hidden',
     position: 'relative',
