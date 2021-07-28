@@ -76,12 +76,9 @@ These params are injected into the Webview Landing Page on load for acces on you
 
 | Field                              | Type    |
 | ---------------------------------- | ------- |
-| `AT_ELEVATE_APP_APP_PUSHY_ID`      | string  |
-| `AT_ELEVATE_APP_APP_PUSHY_ALLOWED` | boolean |
+| `window.AppData.AT_ELEVATE_APP_APP_PUSHY_ID`      | string  |
+| `window.AppData.AT_ELEVATE_APP_APP_PUSHY_ALLOWED` | boolean |
 
-where now you can extract these values on your web page side from the window object as such (example):
-
-`window.AT_ELEVATE_APP_APP_PUSHY_ID`
 
 Note:
 
