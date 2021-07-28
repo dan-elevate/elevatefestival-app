@@ -9,6 +9,8 @@ target 'festival_app' do
   use_react_native!(:path => config["reactNativePath"])
   pod 'Permission-Notifications', :path => "#{permissions_path}/Notifications"
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+  pod 'React-RCTLinking', :path => '../node_modules/react-native/Libraries/LinkingIOS'
+
   target 'festival_appTests' do
     inherit! :complete
     # Pods for testing

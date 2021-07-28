@@ -16,7 +16,10 @@
   "requires_arc": true,
   "swift_versions": "4.2",
   "dependencies": {
-    "React": [">= 0.13.0", "< 1.0.0"]
+    "React": [
+      ">= 0.13.0",
+      "< 1.0.0"
+    ]
   },
   "swift_version": "4.2"
 }
