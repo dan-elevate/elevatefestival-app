@@ -103,8 +103,8 @@ These params are injected into the Webview Landing Page on load for acces on you
 
 | Field | Type |
 |--|--|
-| `[MY_BUNDLE_ID]_APP_PUSHY_ID` | string |
-| `[MY_BUNDLE_ID]_APP_PUSHY_ALLOWED` | boolean |
+| `window.AppData.[MY_BUNDLE_ID]_APP_PUSHY_ID` | string |
+| `window.AppData.[MY_BUNDLE_ID]_APP_PUSHY_ALLOWED` | boolean |
 
 Note:
 
