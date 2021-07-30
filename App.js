@@ -29,12 +29,12 @@ class App extends React.Component {
   WEBVIEW_REF = React.createRef();
   state = {
     connected: null,
-    main_uri: Config.APP_INITIAL_WEBVIEW_URL,
+    main_uri: Config.APP_INITIAL_WEBVIEW_URL,  
     pushy_device_id: undefined,
     pushy_device_permission: undefined,
     pushyAttemptCount: 0,
   };
-  
+
   _handleOpenURL(url) {
     if (!url) {
       return;
@@ -305,3 +305,4 @@ const styles = StyleSheet.create({
   },
 });
 export default App;
+
