@@ -2,7 +2,7 @@
 
   
 
-<h1 align="center">Welcome to Festival App 👋</h1>
+<h1 align="center">Elevate Festival App 👋</h1>
 
   
 
